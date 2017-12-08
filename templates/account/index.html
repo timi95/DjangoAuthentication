@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+	</br>Login Page
+	<a href="{% url 'login' %}">login</a>
+	</br>Registration Page
+	<a href="{% url 'account/register' %}">Register</a>
+	
+{% endblock %}

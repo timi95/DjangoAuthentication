@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+	{% if user.is_anonymous %}
+	</br>Login Page
+	<a href="{% url 'login2' %}">login</a>
+	</br>Registration Page
+	<a href="{% url 'register' %}">Register</a>
+	{% else %}
+	<p> You are still logged in {{ user.username }}</p>
+	{% endif %}
+	
+{% endblock %}
