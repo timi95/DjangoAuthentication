@@ -17,3 +17,14 @@ class RegisterUserForm(forms.ModelForm):
 
 	
 		return cd['password2']
+
+class LoginUserForm(forms.ModelForm):
+	username = forms.CharField()
+	password = forms.CharField(widget=forms.PasswordInput)
+
+	class Meta:
+		model = User
+		fields = ['username','password']
+
+	def validLogin(self):
+		return True

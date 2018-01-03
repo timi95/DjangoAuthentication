@@ -3,9 +3,11 @@
 {% block title %}Index{% endblock %}
 
 {% block content %}
+<li>
 	</br>Login Page
-	<a href="{% url 'login' %}">login</a>
+		<a href="{% url 'login' %}">Login</a>
 	</br>Registration Page
-	<a href="{% url 'account/register' %}">Register</a>
-	
+		<a href="{% url 'register' %}">Register</a>
+		<a href="#">Contact</a>
+</li>
 {% endblock %}

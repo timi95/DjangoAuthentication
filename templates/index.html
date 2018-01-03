@@ -5,7 +5,7 @@
 {% block content %}
 	{% if user.is_anonymous %}
 	</br>Login Page
-	<a href="{% url 'login2' %}">login</a>
+	<a href="{% url 'login' %}">login</a>
 	</br>Registration Page
 	<a href="{% url 'register' %}">Register</a>
 	{% else %}

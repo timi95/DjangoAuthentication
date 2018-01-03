@@ -1,0 +1,3 @@
+{
+    "python.pythonPath": "${workspaceRoot}/v_env/bin/python"
+}

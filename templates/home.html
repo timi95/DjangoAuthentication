@@ -8,8 +8,13 @@
 	</br>This is your home page
   <p><a href="{% url 'logout' %}">logout</a></p>
 {% else %}
-  <p>You are not logged in</p>
-	<p><a href="{% url 'logout' %}">logout</a></p></br>	
-	<a href="{% url 'login' %}">login</a>
+  <li>
+    </br>Login Page
+        <a href="{% url 'login' %}">Login</a>
+    </br>Registration Page
+        <a href="{% url 'register' %}">Register</a>
+    </br>Contact page    
+        <a href="#">Contact</a>
+  </li>
 {% endif %}
 {% endblock %}
