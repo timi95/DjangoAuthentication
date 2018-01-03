@@ -34,6 +34,7 @@ class LoginUserView(CreateView):
 
 
 class IndexView(CreateView):
-	template_name = "account/index.html"
-	def index_Render(self,request):
-		return render(request, 'account/index.html')
+	form_class = RegisterUserForm # I am ONLY doing this to prevent an error when returning to homepage from login.html
+	template_name = "index.html"
+	def index_Render(self, request):
+		return render(request, 'index.html')

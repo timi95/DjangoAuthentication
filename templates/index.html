@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
 
-{% block title %}Index{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
-	{% if user.is_anonymous %}
-	</br>Login Page
-	<a href="{% url 'login' %}">login</a>
-	</br>Registration Page
-	<a href="{% url 'register' %}">Register</a>
-	{% else %}
-	<p> You are still logged in {{ user.username }}</p>
-	{% endif %}
-	
+{% if user.is_authenticated %}
+<h1>Welcome to your Home Page {{ user.username }} </h1>
+	</br>This is your home page
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+<h1>This is the Home Page</h1>
+	<li>
+		</br>Login Page
+			<a href="{% url 'login' %}">Login</a>
+		</br>Registration Page
+			<a href="{% url 'register' %}">Register</a>
+		</br>Contact page    
+			<a href="{% url 'contact' %}">Contact</a>
+	</li>
+{% endif %}
 {% endblock %}

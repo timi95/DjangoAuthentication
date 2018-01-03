@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.views.generic.base import TemplateView
 
 urlpatterns = [
-	url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
+	url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
 	url(r'account/',include('account.urls')),
 	#url(r'login/', include('account.urls')),
     url(r'^admin/', admin.site.urls),

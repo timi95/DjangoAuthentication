@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<h1>This is the Home Page</h1>
+<li>
+	</br>Login Page
+		<a href="{% url 'login' %}">Login</a>
+	</br>Registration Page
+		<a href="{% url 'register' %}">Register</a>
+		<a href="{% url 'contact' %}">Contact</a>
+</li>
+{% endblock %}
