@@ -8,21 +8,42 @@
 	</br>This is your home page
   <p><a href="{% url 'logout' %}">logout</a></p>
 
-  
-  <div>
-	  <form action="" method="POST">
-	<script
-	  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-	  data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-	  data-amount="10"
-	  data-name="Stripe.com"
-	  data-description="Widget"
-	  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-	  data-locale="auto"
-	  data-zip-code="true">
-	</script>
-  </form>
-</div>
+	<canvas id="myCanvas" width="500" height="500"
+	style="border:1px solid #c3c3c3;">
+	Your browser does not support the canvas element.
+	</canvas>
+	
+		<script>
+				var x = Math.random()*200; var y = Math.random()*100;
+				
+				var is_advancing = true; var is_ascending = true;
+			function drawGame(){
+				var canvas = document.getElementById("myCanvas");
+				var ctx = canvas.getContext("2d");
+				ctx.fillStyle = "#FF0000";
+
+				
+				var wall = 460; var floor = 460;
+					if (is_advancing == true) { x+=5; }
+					if ( x >= wall) { is_advancing = false; wall = 0; }
+
+					if ( is_advancing == false ) { x-=3; }
+					if ( x <= 0) { is_advancing = true;}
+
+					
+
+					if (is_ascending == true) { y+=5; }
+					if ( y >= floor) { is_ascending = false; floor = 0; }
+
+					if ( is_ascending == false ) { y-=5; }
+					if ( y <= 0) { is_ascending = true;}
+
+
+				ctx.clearRect(0,0,500,500);
+				ctx.fillRect(x,y,50,50);
+			}
+			setInterval(drawGame,60);
+		</script>
 {% else %}
 <h1>This is the Home Page</h1>
 
