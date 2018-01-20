@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views.generic import CreateView
 from django.http import *
 from account.forms import RegisterUserForm, LoginUserForm
-import stripe
+# import stripe
 # Create your views here.
 
 
@@ -41,18 +41,18 @@ class IndexView(CreateView):
 
 # Set your secret key: remember to change this to your live secret key in production
 # See your keys here: https://dashboard.stripe.com/account/apikeys
-def basicCharge(request):
-	stripe.api_key = "sk_test_Yly7TTfLd1EnS9XNwfR0Hgqd"
+# def basicCharge(request):
+# 	stripe.api_key = "sk_test_Yly7TTfLd1EnS9XNwfR0Hgqd"
 
-	# Token is created using Checkout or Elements!
-	# Get the payment token ID submitted by the form:
-	token = request.form['stripeToken'] # Using Flask
+# 	# Token is created using Checkout or Elements!
+# 	# Get the payment token ID submitted by the form:
+# 	token = request.form['stripeToken'] # Using Flask
 
-	# Charge the user's card:
-	charge = stripe.Charge.create(
-	amount=10,
-	currency="ngn",
-	description="Example charge",
-	source=token,
-	)
+# 	# Charge the user's card:
+# 	charge = stripe.Charge.create(
+# 	amount=10,
+# 	currency="ngn",
+# 	description="Example charge",
+# 	source=token,
+# 	)
 
