@@ -7,7 +7,7 @@ from Project2 import settings
 urlpatterns = [
 	url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
 	 url(r'^index/$', IndexView.as_view(), name='index'),
-	 url(r'^register/$', view=RegisterUserView.as_view(), name='register'),
+	 url(r'^register/$', RegisterUserView.as_view(), name='register'),
 	 url(r'^login/$', view=LoginUserView.as_view(), name='login'),
 	 url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
 	 url(r'^contact/$',TemplateView.as_view(template_name='account/contact.html'), name='contact'),

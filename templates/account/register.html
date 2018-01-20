@@ -8,6 +8,7 @@
 {% endblock%}
 
 {% block content %}
+{% if user.is_anonymous %}
   <h2>Sign up</h2>
   <form action="{% url 'register' %}" method="post">
     {% csrf_token %}
@@ -15,4 +16,7 @@
     <input type="submit" value="Register">
   </form>
   <br><a href="{% url 'index' %}">Back to home page</a>
+  {% else %}
+  <h2> {{ user.username }} you cannot access this page whilst logged in !</h2>
+{% endif %}
 {% endblock %}

@@ -22,6 +22,10 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "e5^rhop#160i&xcbc_0d=c=p7ajq7!c4q$x!!)d!@$x@0l4cak"
+#STRIPE KEYS#
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', '')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET', '')
+#STRIPE KEYS#
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

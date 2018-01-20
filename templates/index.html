@@ -7,15 +7,24 @@
 <h1>Welcome to your Home Page {{ user.username }} </h1>
 	</br>This is your home page
   <p><a href="{% url 'logout' %}">logout</a></p>
+
+  
+  <div>
+	  <form action="" method="POST">
+	<script
+	  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+	  data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+	  data-amount="10"
+	  data-name="Stripe.com"
+	  data-description="Widget"
+	  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+	  data-locale="auto"
+	  data-zip-code="true">
+	</script>
+  </form>
+</div>
 {% else %}
 <h1>This is the Home Page</h1>
-	<li>
-		</br>Login Page
-			<a href="{% url 'login' %}">Login</a>
-		</br>Registration Page
-			<a href="{% url 'register' %}">Register</a>
-		</br>Contact page    
-			<a href="{% url 'contact' %}">Contact</a>
-	</li>
+
 {% endif %}
 {% endblock %}
