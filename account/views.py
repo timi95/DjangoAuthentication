@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.shortcuts import render
-from django.views.generic import CreateView
-from django.http import *
-from account.forms import RegisterUserForm, LoginUserForm
+from django.views import generic
+from django.views.generic import CreateView, TemplateView
+from account.models import Author
+from django.http import HttpResponse
+from django.template.response import TemplateResponse
+from account.forms import RegisterUserForm, LoginUserForm, AuthorForm
 # import stripe
 # Create your views here.
 
@@ -16,8 +18,6 @@ class RegisterUserView(CreateView):
 	def dispatch(self, request, *args, **kwargs):
 		# if request.user.is_authenticated():
 			# return HttpResponseForbidden()
-
-
 		return super(RegisterUserView, self).dispatch(request, *args, **kwargs)
 
 	def form_valid(self, form):
@@ -32,12 +32,25 @@ class LoginUserView(CreateView):
 	def login_Render(self, request):
 		return render(request, 'account/login.html')
 
+class DensityView(generic.CreateView):
+	form_class = AuthorForm
+	template_name = 'account/density.html'
+	def density_Render(self, request):
+		return render(request, 'account/density.html',{'KeyName': 'count_corb',})	
 
 class IndexView(CreateView):
 	form_class = RegisterUserForm # I am ONLY doing this to prevent an error when returning to homepage from login.html
 	template_name = "index.html"
 	def index_Render(self, request):
 		return render(request, 'index.html')
+
+#def contact(request):
+#	return render(request,{'Values':'string1'})
+
+
+def search(request):
+	output = 'Hello'
+	return render(request, 'account/density.html', {'output':output})
 
 # Set your secret key: remember to change this to your live secret key in production
 # See your keys here: https://dashboard.stripe.com/account/apikeys

@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+  <title>{% block title %} Project2: Basic Auth {% endblock %}</title>
   <style>
   #mySidenav a {
       position: absolute;
@@ -18,6 +18,7 @@
   
   #mySidenav a:hover {
       left: 0;
+      overflow: auto;
   }
   #index {
     top: 5em;
@@ -84,6 +85,7 @@
 }
     </style>
 </head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body class="background">
   <main>
       <div class="topnav">
@@ -91,16 +93,20 @@
           <a href="{% url 'login' %}">Login</a>
           <a href="{% url 'register' %}">Register</a>
           <a href="{% url 'contact' %}">Contact</a>
+          <a href="{% url 'density' %}">Word-Density-Count</a>
         </div> 
       <div id="mySidenav" class="sidenav">
         <a href="{% url 'index' %}" id="index">Home</a>
 					<a href="{% url 'login' %}" id="login">Login</a>
 					<a href="{% url 'register' %}" id="register">Register</a>
 					<a href="{% url 'contact' %}"id="contact">Contact</a>
-					<a href="#"id="about">About</a>
+					{% comment %} <!-- <a href="{% url 'density' %}"id="about">Density</a> --> {% endcomment %}
         </div>
         <div class="content" >
           {% block content %}
+            {% if output%}
+              {{ output }}
+            {% endif %}
           {% endblock %}
         </div>
   </main>

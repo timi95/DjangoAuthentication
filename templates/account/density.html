@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<p>Hello :{{ KeyName }}<-- </p>
+<h2>Word Density</h2>
+    {% if user.is_authenticated %}
+    <!--<form method="GET" action="/search">-->
+        {% csrf_token %}
+        <input type="text" name="Density" id="Density" placeholder="{{ Search }}"/>
+        <button type="submit">Search</button>
+        <h2>{{ KeyName }}</h2>
+    <!--</form>-->
+    {% endif %}
+{% endblock %}

@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
@@ -8,41 +7,63 @@
 	</br>This is your home page
   <p><a href="{% url 'logout' %}">logout</a></p>
 
-	<canvas id="myCanvas" width="500" height="500"
-	style="border:1px solid #c3c3c3;">
+	<canvas id="myCanvas" width="300" height="300"
+	style="border:1px solid #c3c3c3;background-color: #f8b9de; position:relative; float:left;">
+	Your browser does not support the canvas element.
+	</canvas>
+
+	<canvas id="canvas_two" width="300" height="300"
+	style="border:1px solid #c3c3c3;background-color: #c7f7f7; position:relative; float:right;">
 	Your browser does not support the canvas element.
 	</canvas>
 	
 		<script>
-				var x = Math.random()*200; var y = Math.random()*100;
-				
-				var is_advancing = true; var is_ascending = true;
-			function drawGame(){
+			var x = Math.random()*200; var y = Math.random()*100;
+			var is_advancing = true; var is_ascending = true;
+
+			function drawBouncer(){
 				var canvas = document.getElementById("myCanvas");
 				var ctx = canvas.getContext("2d");
 				ctx.fillStyle = "#FF0000";
-
-				
-				var wall = 460; var floor = 460;
+				var wall = 255; var floor = 255;
+					//FOR THE X LOGIC
 					if (is_advancing == true) { x+=5; }
 					if ( x >= wall) { is_advancing = false; wall = 0; }
-
+					//END OF X LOGIC
 					if ( is_advancing == false ) { x-=3; }
 					if ( x <= 0) { is_advancing = true;}
-
-					
-
+					//FOR THE Y LOGIC
 					if (is_ascending == true) { y+=5; }
 					if ( y >= floor) { is_ascending = false; floor = 0; }
-
+					//END OF Y LOGIC
 					if ( is_ascending == false ) { y-=5; }
 					if ( y <= 0) { is_ascending = true;}
-
-
-				ctx.clearRect(0,0,500,500);
-				ctx.fillRect(x,y,50,50);
+					//ANIMATION
+					ctx.clearRect(0,0,500,500);
+					ctx.fillRect(x,y,50,50);
 			}
-			setInterval(drawGame,60);
+
+			//Objects
+			function Ball(x, y, radius, color) {
+				// set the stage
+				var c=document.getElementById("canvas_two");
+				var ctx=c.getContext("2d");
+
+				//draw the object
+				ctx.clearRect(0,0,500,500);
+				ctx.beginPath();
+				ctx.arc(x,y,radius,0,2*Math.PI);
+				ctx.fillStyle = color;
+				ctx.fill();
+				ctx.stroke();
+
+
+				// do some work
+			 };
+
+			var ball = new Ball(100,75,50,'blue');
+
+			setInterval(drawBouncer,60);
 		</script>
 {% else %}
 <h1>This is the Home Page</h1>
